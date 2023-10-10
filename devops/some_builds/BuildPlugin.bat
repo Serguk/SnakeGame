@@ -1,0 +1,1 @@
+"C:\Program Files\Epic Games\UE_4.26\Engine\Build\BatchFiles\RunUAT.bat" BuildPlugin -Plugin=D:\UnrealProjects\MyPluginProject\Plugins\GPU_Info\GPU_Info.uplugin -TargetPlatforms=Win64 -Package=D:\PluginBuildResult -VS2019

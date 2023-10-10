@@ -1,0 +1,15 @@
+.idea
+.vs
+#*.sln
+DerivedDataCache/
+Intermediate/
+BuildFromBat/
+Stage/
+Saved/
+Binaries/
+Build/
+Documentation/
+Plugins/Developer
+HoloLensEngine.ini
+.vsconfig
+
