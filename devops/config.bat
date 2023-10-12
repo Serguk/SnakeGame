@@ -13,9 +13,9 @@ rem !! Engine version for package !!
 set RunUATPath=%EnginePath_5.2%\Engine\Build\BatchFiles\RunUAT.bat
 
 rem Project params
-set ProjectRoot=c:\JenkinsJobs\Games\UnrealTPSGame
-set ProjectPureName=TPS
-set ProjectName=TPS.uproject
+set ProjectRoot=d:\UnrealProjects\SnakeGame
+set ProjectPureName=SnakeGame
+set ProjectName=SnakeGame.uproject
 set ProjectPath=%ProjectRoot%\%ProjectName%
 
 rem Build params
