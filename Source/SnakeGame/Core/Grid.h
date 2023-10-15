@@ -10,15 +10,15 @@ namespace Snake
     class Grid
     {
     public:
-        Grid(const Dim& dim);
-        Dim dim() const {return c_dim; }
+        Grid(const FDim& dim);
+        FDim GetDim() const {return GridDim; }
 
     private:
-        const Dim c_dim;
-        TArray<CellType> m_cells;
+        const FDim GridDim;
+        TArray<ECellType> GridCells;
 
-        void initWalls();
-        void printDebug();
-        FORCEINLINE int32 posToIndex(int32 x, int32 y) const;
+        void InitWalls();
+        void PrintDebug();
+        FORCEINLINE int32 PosToIndex(int32 x, int32 y) const;
     };
 }

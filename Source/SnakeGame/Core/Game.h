@@ -4,12 +4,10 @@
 
 #include "CoreMinimal.h"
 
-/**
- * 
- */
-class SNAKEGAME_API Game
+
+class Game
 {
 public:
-	Game();
-	~Game();
+    Game();
+
 };

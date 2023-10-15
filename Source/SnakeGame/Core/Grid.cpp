@@ -2,15 +2,13 @@
 
 
 #include "Core/Grid.h"
-#include "VectorTypes.h"
-#include "Windows/LiveCodingServer/Private/External/LC_Assembler.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogGrid, All, All);
 
 using namespace Snake;
 
-Grid::Grid(const Dim& dim)
-    : c_dim(Dim{dim.width + 2, dim.height + 2})
+Grid::Grid(const FDim& Dim)
+    : GridDim(FDim{Dim.Width + 2, Dim.Height + 2})
 {
     /*
      * * * * * *
@@ -20,39 +18,39 @@ Grid::Grid(const Dim& dim)
      * * * * * *
      */
 
-    m_cells.Init(CellType::Empty, c_dim.width * c_dim.height);
-    initWalls();
-    printDebug();
+    GridCells.Init(ECellType::Empty, GridDim.Width * GridDim.Height);
+    InitWalls();
+    PrintDebug();
 }
 
-void Grid::initWalls()
+void Grid::InitWalls()
 {
-    for (int32 y = 0; y < c_dim.height; y++)
+    for (int32 y = 0; y < GridDim.Height; y++)
     {
-        for (int32 x = 0; x < c_dim.width; x++)
+        for (int32 x = 0; x < GridDim.Width; x++)
         {
-            if (x == 0 || x == c_dim.width - 1 || y == 0 || c_dim.height - 1)
+            if (x == 0 || x == GridDim.Width - 1 || y == 0 || GridDim.Height - 1)
             {
-                m_cells[posToIndex(x, y)] = CellType::Wall;
+                GridCells[PosToIndex(x, y)] = ECellType::Wall;
             }
         }
     }
 }
 
-void Grid::printDebug()
+void Grid::PrintDebug()
 {
 #if !UE_BUILD_SHIPPING
-    for (int32 y = 0; y < c_dim.height; y++)
+    for (int32 y = 0; y < GridDim.Height; y++)
     {
         FString line;
-        for (int32 x = 0; x < c_dim.width; x++)
+        for (int32 x = 0; x < GridDim.Width; x++)
         {
             TCHAR symbol = '';
-            switch (m_cells[posToIndex(x, y)])
+            switch (GridCells[PosToIndex(x, y)])
             {
-                case CellType::Empty: symbol = '0';
+                case ECellType::Empty: symbol = '0';
                     break;
-                case CellType::Wall: symbol = '*';
+                case ECellType::Wall: symbol = '*';
                     break;
             }
             line.AppendChar(symbol).AppendChar(' ');
@@ -62,7 +60,7 @@ void Grid::printDebug()
 #endif
 }
 
-int32 Grid::posToIndex(int32 x, int32 y) const
+int32 Grid::PosToIndex(int32 x, int32 y) const
 {
-    return x + y * c_dim.width;
+    return x + y * GridDim.Width;
 }

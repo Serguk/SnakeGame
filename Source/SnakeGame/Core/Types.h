@@ -7,14 +7,14 @@
 namespace Snake
 {
     //Dimension -- grid size
-    struct Dim 
+    struct FDim
     {
-        int32 width;
-        int32 height;
+        int32 Width;
+        int32 Height;
     };
 
     // what is inside the grid's elements
-    enum class CellType 
+    enum class ECellType 
     {
         Empty = 0,
         Wall
@@ -23,8 +23,8 @@ namespace Snake
     };
 
     // configuration game
-    struct Settings
+    struct FSettings
     {
-        Dim gridSize;
+        FDim GridSize;
     };
 }
